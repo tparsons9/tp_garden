@@ -1,6 +1,5 @@
 ---
-title: Welcome to Quartz
+title: Welcome
 ---
 
-This is a blank Quartz installation.
-See the [documentation](https://quartz.jzhao.xyz) for how to get started.
+A digital garden exploring information theory, Bayesian learning, and game theory.

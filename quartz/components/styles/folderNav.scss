@@ -1,0 +1,51 @@
+@use "../../styles/variables.scss" as *;
+
+.folder-nav {
+  flex-direction: column;
+
+  & > h3 {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  & > ul.overflow {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0;
+    max-height: calc(100% - 2rem);
+    overscroll-behavior: contain;
+
+    & > li.folder-nav-section-header {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--gray);
+      letter-spacing: 0.05em;
+      margin-top: 0.75rem;
+      margin-bottom: 0.25rem;
+      padding-left: 0.25rem;
+    }
+
+    & > li.folder-nav-index {
+      margin-bottom: 0.25rem;
+    }
+
+    & > li > a {
+      background-color: transparent;
+      padding: 0.15rem 0.25rem;
+      display: block;
+      border-radius: 4px;
+
+      &.is-current {
+        background-color: var(--lightgray);
+        font-weight: 600;
+      }
+    }
+
+    & > li > .folder-nav-missing {
+      color: var(--gray);
+      padding: 0.15rem 0.25rem;
+      display: block;
+    }
+  }
+}

@@ -14,6 +14,115 @@ export const sharedPageComponents: SharedLayout = {
   }),
 }
 
+const bayesianLearningNav = Component.ConditionalRender({
+  component: Component.FolderNav({
+    title: "Information Theory",
+    folderPrefix: "bayesian-learning/",
+    sections: [
+      {
+        title: "Foundations",
+        entries: [
+          "Information-Theory",
+          "Properties-of-Information",
+          "Shannon-Entropy",
+          "Cross-Entropy",
+          "Khinchin-(1957)-Axiomatization-of-Entropy",
+        ],
+      },
+      {
+        title: "KL-Divergence",
+        entries: [
+          "=-Kullback-Leibler-Divergence-for-Relative-Entropy",
+          "Convexity-of-KL-Divergence",
+        ],
+      },
+      {
+        title: "Partitions & Knowledge",
+        entries: [
+          "Information-Partitions-and-Knowledge",
+          "Knowledge-Operator",
+          "Common-Knowledge",
+          "Mutual-Knowledge",
+          "p-belief",
+          "Common-p-Belief",
+          "Evident-Event",
+          "Meet-of-Information-Partitions",
+          "Aumann's-\"Agreeing-to-Disagree\"-(1976)",
+          "Rubinstein-(1989)'s-Email-Game",
+        ],
+      },
+      {
+        title: "Information Structure",
+        entries: [
+          "Information-Structure",
+          "Signal-Dispersion-and-Informativeness",
+          "Blackwell-Order",
+          "Garblings",
+        ],
+      },
+      {
+        title: "Bayesian Persuasion",
+        entries: [
+          "Bayesian-Persuasion",
+          "Value-of-a-Signal-(Kamenica-Gentzkow)",
+          "When-(Bayesian)-Persuasion-is-valuable",
+        ],
+      },
+      {
+        title: "Information Costs",
+        entries: [
+          "Information-Costs",
+          "Prior-Dependent-Information-Costs",
+          "Posterior-Separable-Cost-Function",
+          "Prior-Independent-Information-Costs",
+          "Axioms-for-Prior-independent-Information-Cost-(PST-2020)",
+        ],
+      },
+      {
+        title: "Bayesian Learning",
+        entries: [
+          "Sequential-Signal-Model",
+          "Doob's-Consistency-Theorem",
+        ],
+      },
+      {
+        title: "Agreement",
+        entries: [
+          "Merging-of-Beliefs-(Blackwell-Dubins)",
+          "Asymptotic-Agreement-of-Beliefs",
+          "Expected-Disagreement-Reduction-from-Information",
+        ],
+      },
+      {
+        title: "Individual & Common Learning",
+        entries: [
+          "Individual-Learning",
+          "Common-Learning",
+          "Individual-Learning-implies-Common-Learning",
+        ],
+      },
+      {
+        title: "Misspecification",
+        entries: [
+          "Dogmatism-as-a-critique-of-Bayesian-Learning",
+          "Model-Uncertainty-and-Misspecification-under-Bayesian-Learning",
+          "Berk's-Consistency-Result",
+          "Failure-of-Asymptotic-Agreement-in-Learning",
+        ],
+      },
+      {
+        title: "Berk-Nash Equilibrium",
+        entries: [
+          "Berk-Nash-Equilibrium",
+          "Berk-Nash-Equilibrium---Single-Agent",
+          "Berk-Nash-Equilibrium---Simultaneous-Games",
+        ],
+      },
+    ],
+  }),
+  condition: (props) => (props.fileData.slug ?? "").startsWith("bayesian-learning/"),
+})
+
 // components for pages that display a single page (e.g. a single note)
 export const defaultContentPageLayout: PageLayout = {
   beforeBody: [
@@ -41,6 +150,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.Explorer(),
   ],
   right: [
+    bayesianLearningNav,
     Component.Graph(),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
@@ -64,5 +174,5 @@ export const defaultListPageLayout: PageLayout = {
     }),
     Component.Explorer(),
   ],
-  right: [],
+  right: [bayesianLearningNav],
 }
